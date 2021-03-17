@@ -1,0 +1,13 @@
+<h1><%= @patient.name %>'s Info</h1>
+
+<h2>Appointments</h2>
+
+<% @patient.appointments.each do |appointment| %>
+  <% @date = appointment.appointment_datetime.to_s(:long).split; @time = @date.pop %>
+  <p>
+    <%= "#{@date.join(' ')} at #{@time} " %>
+    <span>with Dr. <%= link_to appointment.doctor.name, appointment.doctor %></span>
+  </p>
+<% end %>
+
+<%= link_to "Back to List", patients_path %>

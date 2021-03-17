@@ -1,0 +1,8 @@
+<h1>Appointment Info</h1>
+
+<% @date = @appointment.appointment_datetime.to_s(:long).split; @time = @date.pop %>
+<%# @time = @date.pop %>
+
+<p>
+<%= link_to @appointment.patient.name, @appointment.patient %> with Dr. <%= link_to @appointment.doctor.name, @appointment.doctor %> @ <%= "#{@date.join(' ')} at #{@time}" %>
+</p>
